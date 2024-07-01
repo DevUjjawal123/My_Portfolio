@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <style>
+        /* General Styles */
+        body {
+    font-family:'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #d8d2c6;
+    scroll-behavior: smooth;
+    color: #333; 
+    line-height: 1.6; 
+}
+header {
+    background-color: #777d77;
+    color: rgb(239, 246, 245);
+    padding: 1rem 0;
+    text-align: left;
+    position: static;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out; 
+}
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: flex-start;
+        }
+        nav ul li {
+            margin: 0 2rem;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            
+            padding: 100px 2rem 2rem;
+            margin-top: 50px;
+            text-align: center;
+        }
+        section h1 {
+            font-size:40px;
+            margin-bottom: 1rem;
+        }
+        .wlc{
+            color: cyan;
+        }
+        section p {
+            font-size: 1.1rem;
+            
+            line-height: 1.6;
+        }
+        section img {
+            width: 350px;
+            border-radius: 70%;
+            display: inline;
+            margin: 0 auto 1rem;
+            transition: transform 0.3s ease-in-out;
+        }
+        section img:hover {
+            transform: scale(1.1);
+        }
+        .project {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            margin: 1rem;
+            border-radius: 5px;
+            transition: transform 0.3s ease-in-out;
+            display: inline-block;
+            width: calc(33% - 2rem);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .project img {
+            width: 100%;
+            border-radius: 6px;
+        }
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .contact-form input:focus, .contact-form textarea:focus {
+            border-color: #4CAF50;
+        }
+        .contact-form button {
+            padding: 0.7rem;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .contact-form button:hover {
+            background-color: #45a049;
+        }
+
+       
+        .home {
+            background-color: #f0f0f0;
+            text-align: center;
+            padding: 150px 0;
+        }
+        .home h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .home p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .projects {
+            background-color: #e0e0e0;
+            padding-bottom: 100px;
+        }
+        .projects h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact {
+            background-color: #f9f9f9;
+            padding-bottom: 100px;
+        }
+        .contact h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .home h1 {
+    color: #4CAF50; /* Set your desired color here */
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="home">
+         <div class = "wlc"><h1>Welcome to My Portfolio</h1></div>   
+            <p> Hello, I'm Ujjawal Kumar, a dedicated college student with a passion for web development and programming. Explore my portfolio to see my projects, skills, and the innovative solutions I've created. I'm excited to share my journey and experiences with you. Let's connect and collaborate to bring new ideas to life!           </p>
+        </section>
+
+        <section id="about-me" class="section">
+            <h1>About Me</h1>
+            <img src="aboutme.jpg" alt="Your Photo">
+            <p>I'm Ujjawal Kumar, a passionate college student deeply interested in web development and programming. With a love for solving real-world problems through technology, I enjoy creating innovative solutions and exploring new challenges. I thrive in collaborative environments and am committed to continuous learning and growth in the ever-evolving tech landscape.
+            </p>
+        </section>
+
+        <section id="projects" class="projects">
+            <h1>Projects</h1>
+            <div class="project">
+                <img src="pic3.jpg" alt="Project 1">
+                <h3>Event Hub</h3>
+                <p>Event Hub is a dynamic web application designed to keep you informed about upcoming events happening near you. Whether you're looking for concerts, conferences, workshops, or local gatherings, Event Hub uses real-time location data to provide you with a curated list of events tailored to your preferences.
+
+Key Features:
+
+Location-Based Search: Discover events happening in your vicinity.
+Time Filters: Easily find events based on your availability.
+Event Details: Get comprehensive information about each event, including time, location, and description.
+Personalized Recommendations: Tailored event suggestions based on your interests and past preferences.
+Event Hub is not just an event tracker; it's your gateway to staying connected and engaged with the vibrant events happening around you. Explore, discover, and never miss out on the next big thing with Event Hub.</p>
+            </div>
+            <div class="project">
+                <img src="p2.jpg" alt="Project 2">
+                <h3>Resume Builder</h3>
+                <p>Resume Builder is an intuitive online tool designed to streamline the process of creating professional resumes. Whether you're a job seeker entering the workforce or a seasoned professional looking to update your CV, Resume Builder offers a user-friendly interface with robust features to craft polished resumes effortlessly.
+
+                    Key Features:
+                    
+                    Customizable Templates: Choose from a variety of professionally designed templates tailored to different industries and career stages.
+                    Easy Editing: Edit, format and personalize your resume with simple drag-and-drop 
+                    Section Customization: Organize your skills, experience, education, and achievements with customizable sections.
+                    Preview and Download: View your resume in real-time as you make changes and instantly download it in PDF format.
+                    Cloud store: Save and access your resumes securely from anywhere.Resume Builder empowers users to create impactful resumes that stand out to potential employers, helping them showcase their qualifications and skills effectively.
+
+                </p>
+            </div>
+            <div class="project">
+                <img src="project3.jpg" alt="Project 3">
+                <h3>Project 3</h3>
+                <p>Description of project 3. This project involves ...</p>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <h1>Contact Me</h1>
+            <form class="contact-form" id="contact-form">
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                <input type="email" id="email" name="email" placeholder="Your Email" required>
+                <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+            <p id="form-message"></p>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (name && email && message) {
+                document.getElementById('form-message').textContent = 'Thank you for your message, ' + name + '! I will get back to you shortly.';
+                // Here you can add code to handle form submission, like sending data to a server
+            } else {
+                document.getElementById('form-message').textContent = 'Please fill in all fields.';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
