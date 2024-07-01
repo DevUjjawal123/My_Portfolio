@@ -14,3 +14,4 @@ Contact: Connect directly to explore potential collaborations or discuss opportu
 Purpose and Invitation:
 Whether you are an employer, industry professional, or technology enthusiast, this portfolio website invites exploration of dedication, creativity, and commitment to excellence. It serves as a gateway to discover accomplishments and readiness to contribute effectively to future projects and initiatives.
 
+![Screenshot 2024-07-01 233738](https://github.com/DevUjjawal123/My_Portfolio/assets/111521286/acccc749-44eb-4375-a3d0-51f3261b4bac)
