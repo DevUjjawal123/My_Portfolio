@@ -3,6 +3,8 @@ Welcome to the Portfolio
 
 Enter the professional realm through this meticulously crafted portfolio website, developed using HTML, CSS, and JavaScript. This platform serves as a comprehensive showcase of capabilities and achievements in web development and programming.
 
+![Screenshot 2024-07-01 233052](https://github.com/DevUjjawal123/My_Portfolio/assets/111521286/ef6e2e72-bc69-470b-805b-cba0ac9f1636)
+
 Key Features:
 
 Projects: Explore a curated selection of projects that highlight expertise in developing practical and innovative solutions.
