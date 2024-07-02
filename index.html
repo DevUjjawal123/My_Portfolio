@@ -4,174 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
-    <style>
-        /* General Styles */
-        body {
-    font-family:'Times New Roman', Times, serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-color: #d8d2c6;
-    scroll-behavior: smooth;
-    color: #333; 
-    line-height: 1.6; 
-}
-header {
-    background-color: #777d77;
-    color: rgb(239, 246, 245);
-    padding: 1rem 0;
-    text-align: left;
-    position: static;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease-in-out; 
-}
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: flex-start;
-        }
-        nav ul li {
-            margin: 0 2rem;
-        }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        section {
-            
-            padding: 100px 2rem 2rem;
-            margin-top: 50px;
-            text-align: center;
-        }
-        section h1 {
-            font-size:40px;
-            margin-bottom: 1rem;
-        }
-        .wlc{
-            color: cyan;
-        }
-        section p {
-            font-size: 1.1rem;
-            
-            line-height: 1.6;
-        }
-        section img {
-            width: 350px;
-            border-radius: 70%;
-            display: inline;
-            margin: 0 auto 1rem;
-            transition: transform 0.3s ease-in-out;
-        }
-        section img:hover {
-            transform: scale(1.1);
-        }
-        .project {
-            background-color: white;
-            border: 1px solid #ddd;
-            padding: 1rem;
-            margin: 1rem;
-            border-radius: 5px;
-            transition: transform 0.3s ease-in-out;
-            display: inline-block;
-            width: calc(33% - 2rem);
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .project img {
-            width: 100%;
-            border-radius: 6px;
-        }
-        .project:hover {
-            transform: translateY(-5px);
-        }
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            max-width: 400px;
-            padding: 0.5rem;
-            margin-bottom: 1rem;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            transition: border-color 0.3s ease-in-out;
-        }
-        .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #4CAF50;
-        }
-        .contact-form button {
-            padding: 0.7rem;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease-in-out;
-        }
-        .contact-form button:hover {
-            background-color: #45a049;
-        }
 
-       
-        .home {
-            background-color: #f0f0f0;
-            text-align: center;
-            padding: 150px 0;
-        }
-        .home h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-        .home p {
-            font-size: 1.2rem;
-            color: #666;
-            line-height: 1.6;
-            max-width: 600px;
-            margin: 0 auto 2rem;
-        }
-        .projects {
-            background-color: #e0e0e0;
-            padding-bottom: 100px;
-        }
-        .projects h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .contact {
-            background-color: #f9f9f9;
-            padding-bottom: 100px;
-        }
-        .contact h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .home h1 {
-    color: #4CAF50; /* Set your desired color here */
-}
-
-    </style>
 </head>
 <body>
 
-    <header>
+    <header class="header">
+      
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about-me">About Me</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
     </header>
+    
 
     <main>
         <section id="home" class="home">
@@ -222,6 +71,33 @@ Event Hub is not just an event tracker; it's your gateway to staying connected a
                 <p>Description of project 3. This project involves ...</p>
             </div>
         </section>
+        <section id="education" class="education">
+            <div class="wlc">
+                <h1>My Educational Background</h1>
+            </div>
+            <div class="education-details">
+                <div class="education-card">
+                    <h2>10th Grade</h2>
+                    <p>School:Guru Nanak English School</p>
+                    <p>Year:2018 </p>
+                    <p>Percentage: 78.8</p>
+                </div>
+                <div class="education-card">
+                    <h2>12th Grade</h2>
+                    <p>School: Little Flower House</p>
+                    <p>Year: 2020</p>
+                    <p>Percentage: 84.5</p>
+                </div>
+                <div class="education-card">
+                    <h2>B.Tech</h2>
+                    <p>College: Kiet Group Of Institution</p>
+                    <p>Year: 2021-2025</p>
+                    <p>CGPA: 7.8</p>
+                </div>
+            </div>
+        </section>
+        
+        
 
         <section id="contact" class="contact">
             <h1>Contact Me</h1>
@@ -251,6 +127,39 @@ Event Hub is not just an event tracker; it's your gateway to staying connected a
         });
     </script>
 
+<footer class="footer">
+    <div class="inner-footer">
+        <div class="footer-items">
+            <h2>Contact Information</h2>
+            <p>Email: ujjawal.2125it1084@kieet.edu</p>
+            <p>Phone: 951953xyz</p>
+            <p>Address: Varanasi</p>
+        </div>
+        <div class="footer-items">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about-me">About Me</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="footer-items">
+            <h2>Social Media</h2>
+            <ul>
+                <li><a href="https://x.com/Ujjawal1700?t=3CEyqjZ01prLscmdxh7X2A&s=09">Twitter</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li><a href="#">Instagram</a></li>
+                <li><a href="https://www.linkedin.com/in/ujjawal-kumar-67b074225?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2024 Ujjawal Kumar | Designed by Ujjawal
+    </div>
+</footer>
+
+
 </body>
 </html>
-
