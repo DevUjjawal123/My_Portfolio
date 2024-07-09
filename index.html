@@ -4,41 +4,558 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Portfolio</title>
+    <style>
+       body {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #F8F9FA;
+    scroll-behavior: smooth;
+    color: #333;
+    line-height: 1.6;
+}
+header {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark blue gradient background */
+    color: #ecf0f1;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
 
+header:hover {
+    background: linear-gradient(135deg, #34495e, #2c3e50); /* Slightly lighter gradient on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo img {
+    border-radius: 70px;
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+    position: relative;
+}
+
+nav ul li a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #3498db; /* Bright blue for hover effect */
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #3498db; /* Bright blue underline on hover */
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li a:hover {
+    background-color: rgba(236, 240, 241, 0.1); /* Light transparent background on hover */
+    color: #3498db; /* Bright blue for hover effect */
+    transform: translateY(-2px);
+}
+
+
+
+
+
+section {
+    padding: 100px 2rem 2rem;
+    margin-top: 50px;
+    text-align: center;
+}
+
+section h1 {
+    font-size: 50px;
+    margin-bottom: 1rem;
+}
+
+.wlc {
+    color: cyan;
+}
+
+section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+section img {
+    width: 350px;
+    border-radius: 70%;
+    display: inline;
+    margin: 0 auto 1rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+section img:hover {
+    transform: scale(1.1);
+}
+
+.project {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    width: calc(33% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.project img {
+    width: 100%;
+    border-radius: 6px;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #4CAF50;
+}
+
+.contact-form button {
+    padding: 0.7rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+/* Home and About Me Sections */
+.home, .about-me {
+    position: relative;
+    color: black;
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f0f0f0; /* Light grey background */
+}
+
+.home video, .about-me video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.home .container, .about-me .container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+}
+
+.home .container:hover, .about-me .container:hover {
+    transform: translateY(-10px); 
+    background-color: rgba(255, 255, 255, 1); 
+}
+
+.home img, .about-me img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 20px 0;
+    transition: transform 0.3s ease-in-out; 
+}
+
+.home img:hover, .about-me img:hover {
+    transform: scale(1.1); 
+}
+
+.home h1, .about-me h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.home p, .about-me p {
+    font-size: 18px;
+    line-height: 1.6;
+    transition: color 0.3s ease-in-out;
+}
+
+.home p:hover, .about-me p:hover {
+    color: #333;
+}
+
+.projects {
+    background-color: #e0e0e0;
+    padding-bottom: 100px;
+}
+
+.projects h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.contact {
+     background-color: #f4f4f4;
+    padding-bottom: 100px;
+}
+
+.contact h1 {
+    color: #333;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.education {
+    padding: 50px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.education .wlc h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.education-details {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.education-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+}
+
+.education-card h2 {
+    font-size: 24px;
+    color: #ff6347;
+    margin-bottom: 10px;
+}
+
+.education-card p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.education-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background-color: #f0f8ff;
+}
+
+@media (max-width: 768px) {
+    .education {
+        padding: 30px 10px;
+    }
+
+    .education .wlc h1 {
+        font-size: 28px;
+    }
+
+    .education-card h2 {
+        font-size: 20px;
+    }
+
+    .education-card p {
+        font-size: 14px;
+    }
+}
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 50px 0;
+}
+
+.inner-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-items {
+    padding: 20px;
+    flex: 1; /* Flex property to allow items to grow and shrink */
+    min-width: 200px; /* Minimum width to ensure responsive design */
+}
+
+.footer-items h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #3498db; /* Bright blue for section titles */
+}
+
+.footer-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-items ul li {
+    margin-bottom: 10px;
+}
+
+.footer-items ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footer-items ul li a:hover {
+    color: #3498db; /* Bright blue for hover effect */
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    background-color: #111;
+    color: #ddd;
+    font-size: 14px;
+    border-top: 1px solid #444; /* Border to distinguish footer bottom */
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .inner-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-items {
+        margin-bottom: 20px; /* Add margin for spacing between sections */
+    }
+}
+
+
+.button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.resume-btn {
+    background-color: #4CAF50;
+}
+
+.github-btn {
+    background-color: #333;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.resume-btn:hover {
+    background-color: #45a049;
+}
+
+.github-btn:hover {
+    background-color: #555;
+}
+
+.social-icons {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.social-icons li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: auto;
+}
+
+.internship-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    display: inline-block;
+    width: calc(33% - 2rem);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.internship-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.internship-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.internship-card p {
+    font-size: 1rem;
+    color: #777;
+}
+
+.internship-card:hover {
+    transform: translateY(-5px);
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+footer a {
+    color: #ff6347;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #ff4500;
+    text-decoration: underline;
+}
+
+
+       
+
+    </style>
 </head>
+<link rel="icon" type="image/x-icon" href="logo1.png">
 <body>
-
     <header class="header">
-      
+        <div class="logo">
+            <img src="logo.jpg" alt="Logo">
+        </div>
         <nav>
             <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about-me">About Me</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
+                <li><a href="project.html">Projects</a></li>
+                <li><a href="education.html">Education</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
-    
-
+    </header> 
     <main>
         <section id="home" class="home">
-         <div class = "wlc"><h1>Welcome to My Portfolio</h1></div>   
-            <p> Hello, I'm Ujjawal Kumar, a dedicated college student with a passion for web development and programming. Explore my portfolio to see my projects, skills, and the innovative solutions I've created. I'm excited to share my journey and experiences with you. Let's connect and collaborate to bring new ideas to life!           </p>
-            <div class="button-container">
-                <a href="https://drive.google.com/file/d/1EFPec2nn3EP66IljSTGkCvNvoLE4SLS6/view?usp=sharing" class="btn resume-btn" target="_blank">View My Resume</a>
-                <a href="https://github.com/DevUjjawal123" class="btn github-btn" target="_blank">My GitHub</a>
+            <video autoplay muted loop>
+                <source src="10872-226635344_medium.mp4" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+            <div class = "wlc"><h1>Welcome to My Portfolio</h1></div>   
+               <p> Hello, I'm Ujjawal Kumar, a dedicated college student with a passion for web development and programming. Explore my portfolio to see my projects, skills, and the innovative solutions I've created. I'm excited to share my journey and experiences with you. Let's connect and collaborate to bring new ideas to life!           </p>
+               <div class="button-container">
+                   <a href="https://drive.google.com/file/d/1EFPec2nn3EP66IljSTGkCvNvoLE4SLS6/view?usp=sharing" class="btn resume-btn" target="_blank">View My Resume</a>
+                   <a href="https://github.com/DevUjjawal123" class="btn github-btn" target="_blank">My GitHub</a>
+               </div>
+           </section>
+        
+
+           <section id="about-me" class="about-me">
+            <div class="container">
+                <h1>About Me</h1>
+                <img src="aboutme.jpg" alt="Your Photo">
+                <p>Hello, I'm Ujjawal Kumar, a dedicated IT student currently pursuing my B.Tech at KIET Group of Institutions in Delhi-NCR. My journey in technology began with a strong foundation from Guru Nanak English School for my 10th grade and Little Flower House for my 12th grade education. Passionate about web development and software engineering, I've honed my skills through hands-on experience and formal education. During my summer internships, including at Techno-Hacks Edu-Tech and the Internship and Industry Partnership Cell (IIPC), I mastered HTML, CSS, JavaScript, and explored frameworks like React and Angular, alongside learning backend development using Django. These experiences have equipped me with a robust understanding of software engineering principles and project management. I've applied this knowledge to projects like EventHub, a dynamic website for managing statewide events, and ResumeBuilder, where I developed a platform for creating professional resumes using technologies such as NodeJS and Angular. Alongside my academic pursuits, I've pursued certifications in Data Structures in Java, Salesforce Administration, Alibaba Cloud Services, and Google Data Analysis with R Programming, enhancing my technical competencies. Achieving a top 5% ranking in the 2017 national INMO competition and attaining 3* at CodeChef highlight my commitment to continuous learning and problem-solving. Beyond academics, I contribute regularly to Medium on topics ranging from technology trends to entrepreneurship and self-development, driven by my passion for personal growth and sharing knowledge. You can connect with me on LinkedIn to explore more about my journey and projects, or check out my GitHub repository to see my latest developments. Let's connect and innovate together!</p>
             </div>
         </section>
-
-        <section id="about-me" class="section">
-            <h1>About Me</h1>
-            <img src="aboutme.jpg" alt="Your Photo">
-            <p>I'm Ujjawal Kumar, a passionate college student deeply interested in web development and programming. With a love for solving real-world problems through technology, I enjoy creating innovative solutions and exploring new challenges. I thrive in collaborative environments and am committed to continuous learning and growth in the ever-evolving tech landscape.
-                Looking ahead, I aspire to leverage my skills and experiences to build impactful digital solutions that address real-world challenges. Whether it's developing a cutting-edge web application, contributing to open-source projects, or exploring new technologies, I am always eager to take on new challenges and make a meaningful difference.</p>
-        </section>
-
         <section id="projects" class="projects">
             <h1>Projects</h1>
             <div class="project">
@@ -70,9 +587,11 @@ Event Hub is not just an event tracker; it's your gateway to staying connected a
                 </p>
             </div>
             <div class="project">
-                <img src="project3.jpg" alt="Project 3">
-                <h3>Project 3</h3>
-                <p>Description of project 3. This project involves ...</p>
+                <img src="d1.jpeg" alt="Project 3">
+                <h3>Placement Portal</h3>
+                <p>As part of my academic and professional development, I developed a comprehensive Placement Portal for the KIET Group of Institutions. This portal is designed to streamline the placement process for students, providing a user-friendly interface that connects them with potential employers. Key features include centralized job listings categorized by industry and role, an intuitive resume builder with professional templates, and application tracking to monitor job application statuses. Additionally, the portal offers detailed company profiles, interview preparation resources with common questions and mock sessions, and information about career-related events and workshops. Collaboration features allow students to share experiences and seek advice from peers and mentors, fostering a supportive community. The portal's minimalist design ensures a seamless user experience, with a creative vertical layout that organizes content effectively and uses images sparingly to maintain focus on essential information and functionality.
+
+                </p>
             </div>
         </section>
         <section id="education" class="education">
@@ -100,6 +619,43 @@ Event Hub is not just an event tracker; it's your gateway to staying connected a
                 </div>
             </div>
         </section>
+        
+        <section id="internship" class="internship">
+            <h1>Internship</h1>
+            <div class="internship-details">
+                <div class="internship-card">
+                    <img src="path/to/iipc-certificate.jpg" alt="IIPC Internship Certificate">
+                    <h2>Internship and Industry Partnership Cell (IIPC)</h2>
+                    <p>July 2022 - Aug 2022</p>
+                    <p>
+                        Development of machine learning solutions during the internship<br>
+                        Worked with skilled engineers and data scientists to leverage collective expertise<br>
+                        Utilized ML algorithms to analyze datasets with practical application.
+                    </p>
+                </div>
+                <div class="internship-card">
+                    <img src="path/to/techno-hacks-certificate.jpg" alt="Techno-Hacks Internship Certificate">
+                    <h2>Web Development Intern</h2>
+                    <p>Techno-Hacks Edu-Tech</p>
+                    <p>1 Aug - 31 Aug 2023</p>
+                    <p>
+                        Mastered HTML, CSS, JavaScript<br>
+                        Tinkered with React and Angular, embraced GitHub<br>
+                        Learnt basics of backend development using Django.
+                    </p>
+                </div>
+                <div class="internship-card">
+                    <img src="edu.jpg" alt="Edunet Foundation Internship Certificate">
+                    <h2>AI & Cloud</h2>
+                    <p>Edunet Foundation</p>
+                    <p>4th June - 1st July</p>
+                    <p>
+                        During this transformative experience, I had the opportunity to dive deep into the realms of artificial intelligence and cloud technologies, gaining hands-on experience and expanding my skill set.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
         
         
 
