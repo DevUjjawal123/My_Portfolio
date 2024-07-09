@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio of Ujjawal Kumar</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa; /* Updated background color */
+            color: #333;
+        }
+       
+        header {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark blue gradient background */
+    color: #ecf0f1;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+header:hover {
+    background: linear-gradient(135deg, #34495e, #2c3e50); /* Slightly lighter gradient on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.logo img {
+    border-radius: 70px;
+    height: 40px;
+    width: auto;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center; /* Center align the navigation */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 1.5rem;
+    position: relative;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #ecf0f1;
+    font-size: 16px; /* Set the font size */
+    padding: 8px 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: #555; /* Darker background on hover and active state */
+    color: #fff; /* White text color */
+    border-radius: 5px;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #3498db; /* Bright blue underline on hover */
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+nav ul li a:hover {
+    background-color: rgba(236, 240, 241, 0.1); /* Light transparent background on hover */
+    color: #3498db; /* Bright blue for hover effect */
+    transform: translateY(-2px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+        section {
+            margin-bottom: 40px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        .education-card, .internship-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .education-card:hover, .internship-card:hover {
+            transform: translateY(-5px);
+        }
+        .education-card h2, .internship-card h3 {
+            margin-bottom: 10px;
+            color: #343a40; /* Dark header color */
+        }
+        .education-card p, .internship-card p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .education-card a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .education-card a:hover {
+            color: #0056b3; /* Hover color */
+        }
+        .certification-card {
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .certification-card:hover {
+            transform: translateY(-5px);
+        }
+        .certification-card h3 {
+            margin-bottom: 10px;
+            color: #343a40; /* Dark header color */
+        }
+        .certification-card p {
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .certification-card a {
+            display: block;
+            margin-top: 10px;
+            color: #007bff; /* Link color */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .certification-card a:hover {
+            color: #0056b3; /* Hover color */
+        }
+        .certification-card img {
+            width: 100%;
+            border-radius: 6px;
+        }
+        .footer {
+    background-color: #222;
+    color: #fff;
+    padding: 20px 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.inner-footer {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-items {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px; /* Minimum width to ensure responsive design */
+}
+
+.footer-items h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #5b5d5d;
+    padding-bottom: 5px;
+    color: #3498db; /* Bright blue for section titles */
+}
+
+.footer-items p, .footer-items ul, .footer-items a {
+    font-size: 14px;
+    color: #bbb;
+    text-decoration: none;
+}
+
+.footer-items a:hover {
+    color: #d5972d; /* Hover color for links */
+}
+
+.footer-items ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-items ul li {
+    margin: 5px 0;
+}
+
+.social-icons {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.social-icons li {
+    margin: 0 10px;
+}
+
+.social-icons a img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons a:hover img {
+    transform: scale(1.1);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 12px;
+    border-top: 1px solid #c9c3c3;
+    padding-top: 10px;
+    color: #ddd; /* Light grey for footer bottom text */
+}
+
+@media (max-width: 768px) {
+    .inner-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-items {
+        margin-bottom: 20px; /* Add margin for spacing between sections */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about-me">About Me</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="education" class="education">
+            <div class="wlc">
+                <h1>My Educational Background</h1>
+            </div>
+            <div class="education-details">
+                <div class="education-card">
+                    <h2>10th Grade</h2> 
+                    <p>School: Guru Nanak English School</p>
+                    <p>Year: 2018</p>
+                    <p>Percentage: 78.8</p>
+                    <a href="https://drive.google.com/file/d/1lnJF9Kkz78ed4Yqiz3gqcuAh6ovuBYZH/view?usp=sharing" target="_blank">View 10th Grade Marksheet (PDF)</a>
+                </div>
+                <div class="education-card">
+                    <h2>12th Grade</h2>
+                    <p>School: Little Flower House</p>
+                    <p>Year: 2020</p>
+                    <p>Percentage: 84.5</p>
+                    <a href="https://drive.google.com/file/d/1m0jrls86ZLuvky-LpWP5tn_RqS9WdwsB/view?usp=sharing" target="_blank">View 12th Grade Marksheet (PDF)</a>
+                </div>
+                <div class="education-card">
+                    <h2>B.Tech</h2>
+                    <a href="https://drive.google.com/file/d/1xuo_N93BVlp0pXkmc4MTQH7cin-3GEr_/view?usp=sharing" target="_blank">View B.Tech Marksheet (PDF)</a>
+                    <p>College: KIET Group Of Institutions</p>
+                    <p>Year: 2021-2025</p>
+                    <p>CGPA: 7.8</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="achievements">
+            <h2>Achievements</h2>
+            <ul>
+                <li>Winner of Web Development Competition, 2023</li>
+                <li>Best Academic Performer Award, 2022</li>
+                <li>Second Prize in National Coding Challenge, 2021</li>
+            </ul>
+        </section>
+
+        <section id="internships" class="internships">
+            <h2>Internships</h2>
+            <div class="internship-card">
+                <h3>Software Engineering Intern</h3>
+                <p>Company: Tech Solutions Inc.</p>
+                <p>Duration: June 2023 - August 2023</p>
+                <p>Responsibilities:</p>
+                <ul>
+                    <li>Developed front-end features using HTML, CSS, and JavaScript.</li>
+                    <li>Assisted in backend development using Node.js and MongoDB.</li>
+                    <li>Collaborated with team members on project planning and execution.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certifications" class="certifications">
+            <h2>Certifications</h2>
+            <div class="certification-card">
+                <h3>Alibaba Cloud Certification</h3>
+                <p>Issuing Organization: Alibaba Cloud</p>
+                <p>Issue Date: April 2024</p>
+                <p>Expiration Date : April 2026</p>
+                <p>Credential ID: ACCD0119700100011002</p>
+                <a href="https://edu.alibabacloud.com/clouder/my/clouderpackage?spm=a2c4d.11423078.0.0.798f7df4f6NjmS" target="_blank">View Certification (PDF)</a>
+            </div>
+            <div class="certification-card">
+                <h3>Java: Data Structure</h3>
+                <p>Issuing Organization: Linkedln</p>
+                <p>Issue Date: Nov 2023</p>
+                <p>Expiration Date: Nil</p>
+                <p>Credential ID: #</p>
+                <a href="https://www.linkedin.com/learning/certificates/c434d1e89c6c834616a8c2458218a5e72367ecbe888aae1fb2cca3626fbfd02e" target="_blank">View Certification (PDF)</a>
+            </div>
+            <div class="certification-card">
+                <h3>Aws Academy Cloud Foundation</h3>
+                <p>Issuing Organization: Amazon Web Services</p>
+                <p>Issue Date: May 2024</p>
+                <p>Expiration Date : Nil</p>
+                <p>Credential ID: ACCD0119700100011002</p>
+                <a href="https://www.credly.com/badges/b267ee4b-e4dd-41c4-a5b5-469895caaa16/linked_in_profile" target="_blank">View Certification (PDF)</a>
+            </div>
+            <div class="certification-card">
+                <h3>Aws Cloud Practitioner Essential</h3>
+                <p>Issuing Organization: Amazon Web Services</p>
+                <p>Issue Date: May 2024</p>
+                <p>Expiration Date : Nil</p>
+                <p>Credential ID: ACCD0119700100011002</p>
+                <a href="https://drive.google.com/file/d/1ILrvtjiwcbz2PIEuwo4bKsO2NQLFMssK/view?usp=sharing" target="_blank">View Certification (PDF)</a>
+            </div>
+            <div class="certification-card">
+                <h3>Aws Certified Devloper-Associate Certification</h3>
+                <p>Issuing Organization: Infosys</p>
+                <p>Issue Date: May 2024</p>
+                <p>Expiration Date : Nil</p>
+                <p>Credential ID: </p>
+                <a href="https://verify.onwingspan.com/" target="_blank">View Certification (PDF)</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="inner-footer">
+            <div class="footer-items">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#about-me">About Me</a></li>
+                    <li><a href="index.html#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-items">
+                <h2>Connect with Me</h2>
+                <ul class="social-icons">
+                    <li><a href="https://twitter.com/Ujjawal1700" target="_blank"><img src="twitter.png" alt="Twitter"></a></li>
+                    <li><a href="https://www.linkedin.com/in/ujjawal-kumar-67b074225" target="_blank"><img src="linkdln.png" alt="LinkedIn"></a></li>
+                    <li><a href="https://github.com/DevUjjawal123" target="_blank"><img src="github.png" alt="GitHub"></a></li>
+                </ul>
+            </div>
+            <div class="footer-items">
+                <h2>Contact Me</h2>
+                <p>Email: ujjawal.2125it1084@kiet.edu</p>
+                <p>Phone: 951953xyz</p>
+                <p>Address: Varanasi</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ujjawal Kumar. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
